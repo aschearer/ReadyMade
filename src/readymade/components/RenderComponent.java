@@ -22,12 +22,12 @@ public class RenderComponent implements Component
     }
 
     @Override
-    public String getType()
+    public final String getType()
     {
         return RenderComponent.TYPE;
     }
 
-    public void render(Graphics g)
+    public final void render(Graphics g)
     {
         g.drawRect(this.body.getX(), this.body.getY(), this.body.getWidth(), this.body.getHeight());
     }

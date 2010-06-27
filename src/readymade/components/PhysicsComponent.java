@@ -27,57 +27,61 @@ public class PhysicsComponent implements Body, Component
     }
 
     @Override
-    public String getType()
+    public final String getType()
     {
         return PhysicsComponent.TYPE;
     }
 
-    public float getX()
+    @Override
+    public final float getX()
     {
         return this.x;
     }
 
-    public void setX(float x)
+    public final void setX(float x)
     {
         this.x = x;
     }
 
-    public float getY()
+    @Override
+    public final float getY()
     {
         return this.y;
     }
 
-    public void setY(float y)
+    public final void setY(float y)
     {
         this.y = y;
     }
 
-    public float getWidth()
+    @Override
+    public final float getWidth()
     {
         return this.width;
     }
 
-    public void setWidth(float width)
+    public final void setWidth(float width)
     {
         this.width = width;
     }
 
-    public float getHeight()
+    @Override
+    public final float getHeight()
     {
         return this.height;
     }
 
-    public void setHeight(float height)
+    public final void setHeight(float height)
     {
         this.height = height;
     }
 
-    public Vector2f getVelocity()
+    public final Vector2f getVelocity()
     {
         return this.velocity.copy();
     }
 
-    public void setVelocity(Vector2f velocity)
+    public final void setVelocity(Vector2f velocity)
     {
         this.velocity = velocity;
     }

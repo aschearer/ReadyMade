@@ -11,7 +11,7 @@ public abstract class UpdateComponent implements Component
     private static final String TYPE = "update";
 
     @Override
-    public String getType()
+    public final String getType()
     {
         return UpdateComponent.TYPE;
     }

@@ -24,13 +24,13 @@ public class JavascriptEntityFactory implements EntityFactory
         this.scripts = new HashMap<String, String>();
     }
 
-    public void registerType(String type, String script)
+    public final void registerType(String type, String script)
     {
         this.scripts.put(type, script);
     }
 
     @Override
-    public Entity getEntity(String type)
+    public final Entity getEntity(String type)
     {
         this.counter++;
         engine.put("id", this.counter);

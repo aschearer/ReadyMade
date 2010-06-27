@@ -18,12 +18,12 @@ public class Event
         this.target = target;
     }
 
-    public String getType()
+    public final String getType()
     {
         return this.type;
     }
 
-    public Entity getTarget()
+    public final Entity getTarget()
     {
         return this.target;
     }

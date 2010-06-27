@@ -9,7 +9,9 @@ import org.newdawn.slick.geom.Vector2f;
  */
 public class GravityComponent extends UpdateComponent
 {
-    private PhysicsComponent body;
+    private static final float GRAVITY = .01f;
+
+    private final PhysicsComponent body;
 
     public GravityComponent(PhysicsComponent body)
     {
@@ -17,10 +19,10 @@ public class GravityComponent extends UpdateComponent
     }
 
     @Override
-    public void update(int delta)
+    public final void update(int delta)
     {
         Vector2f velocity = this.body.getVelocity();
-        velocity.y -= delta * .01f;
+        velocity.y -= delta * GravityComponent.GRAVITY;
         this.body.setVelocity(velocity);
     }
 }

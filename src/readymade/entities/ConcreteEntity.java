@@ -27,29 +27,29 @@ public class ConcreteEntity implements Entity
     }
 
     @Override
-    public int getIdentity()
+    public final int getIdentity()
     {
         return this.identity;
     }
 
-    public int getComponentCount()
+    public final int getComponentCount()
     {
         return this.components.size();
     }
 
-    public int getEventListenerCount()
+    public final int getEventListenerCount()
     {
         return this.numberOfEventListeners;
     }
 
     @Override
-    public void addComponent(Component component)
+    public final void addComponent(Component component)
     {
         this.components.put(component.getType(), component);
     }
 
     @Override
-    public void addEventListener(String event, EventListener listener)
+    public final void addEventListener(String event, EventListener listener)
     {
         HashSet<EventListener> eventListeners = this.listeners.get(event);
         if (eventListeners == null)
@@ -67,19 +67,19 @@ public class ConcreteEntity implements Entity
 
     @SuppressWarnings("unchecked")
     @Override
-    public <T extends Component> T getComponent(String type)
+    public final <T extends Component> T getComponent(String type)
     {
         return (T) this.components.get(type);
     }
 
     @Override
-    public void removeComponent(String component)
+    public final void removeComponent(String component)
     {
         this.components.remove(component);
     }
 
     @Override
-    public void removeEventListener(String event, EventListener listener)
+    public final void removeEventListener(String event, EventListener listener)
     {
         if (this.listeners.containsKey(event))
         {
@@ -96,7 +96,7 @@ public class ConcreteEntity implements Entity
      * 
      * @param event
      */
-    public void notifyListeners(Event event)
+    public final void notifyListeners(Event event)
     {
         HashSet<EventListener> eventListeners = this.listeners.get(event.getType());
         if (eventListeners != null)
@@ -109,7 +109,7 @@ public class ConcreteEntity implements Entity
     }
 
     @Override
-    public String toString()
+    public final String toString()
     {
         return "Entity " + this.identity;
     }

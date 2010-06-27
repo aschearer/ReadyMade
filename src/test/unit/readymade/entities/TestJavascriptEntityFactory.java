@@ -7,6 +7,11 @@ import org.junit.Test;
 import readymade.entities.JavascriptEntityFactory;
 import test.unit.readymade.MockEntity;
 
+/**
+ * Test to ensure the JavascriptFactory correctly parses Javascript.
+ * 
+ * @author Alex Schearer <aschearer@gmail.com>
+ */
 public class TestJavascriptEntityFactory
 {
     private JavascriptEntityFactory factory;
