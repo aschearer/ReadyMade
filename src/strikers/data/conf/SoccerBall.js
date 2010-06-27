@@ -1,5 +1,6 @@
 importClass(Packages.readymade.entities.ConcreteEntity);
 importPackage(Packages.readymade.components);
+importPackage(Packages.strikers.components);
 
 /**
  * Create an entity representing a soccer ball.
