@@ -2,6 +2,7 @@ package test.unit.readymade;
 
 import readymade.components.Component;
 import readymade.entities.Entity;
+import readymade.events.Event;
 import readymade.events.EventListener;
 
 public class MockEntity implements Entity
@@ -49,6 +50,12 @@ public class MockEntity implements Entity
     public void removeEventListener(String event, EventListener listener)
     {
         this.numberOfEventListeners--;
+    }
+
+    @Override
+    public void notifyListeners(Event event)
+    {
+
     }
 
 }

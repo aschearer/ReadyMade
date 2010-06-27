@@ -1,6 +1,7 @@
 package readymade.entities;
 
 import readymade.components.Component;
+import readymade.events.Event;
 import readymade.events.EventListener;
 
 /**
@@ -55,4 +56,11 @@ public interface Entity
      * @param listener
      */
     void removeEventListener(String event, EventListener listener);
+
+    /**
+     * Fire listeners registered for the given event.
+     * 
+     * @param event
+     */
+    void notifyListeners(Event event);
 }

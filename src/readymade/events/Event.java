@@ -9,8 +9,11 @@ import readymade.entities.Entity;
  */
 public class Event
 {
-    private String type;
-    private Entity target;
+    public static final String ADD_TO_STAGE = "added";
+    public static final String REMOVE_FROM_STAGE = "removed";
+
+    private final String type;
+    private final Entity target;
 
     public Event(String type, Entity target)
     {
