@@ -12,15 +12,34 @@ import readymade.events.EventListener;
  * 
  * @author Alex Schearer <aschearer@gmail.com>
  */
-public class AbstractEntity implements Entity
+public class ConcreteEntity implements Entity
 {
+    private int identity;
     private HashMap<String, Component> components;
     private HashMap<String, HashSet<EventListener>> listeners;
+    private int numberOfEventListeners;
 
-    public AbstractEntity()
+    public ConcreteEntity(int id)
     {
+        this.identity = id;
         this.components = new HashMap<String, Component>();
         this.listeners = new HashMap<String, HashSet<EventListener>>();
+    }
+
+    @Override
+    public int getIdentity()
+    {
+        return this.identity;
+    }
+
+    public int getComponentCount()
+    {
+        return this.components.size();
+    }
+
+    public int getEventListenerCount()
+    {
+        return this.numberOfEventListeners;
     }
 
     @Override
@@ -39,7 +58,11 @@ public class AbstractEntity implements Entity
             this.listeners.put(event, eventListeners);
         }
 
-        eventListeners.add(listener);
+        if (!eventListeners.contains(listener))
+        {
+            this.numberOfEventListeners++;
+            eventListeners.add(listener);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -60,7 +83,11 @@ public class AbstractEntity implements Entity
     {
         if (this.listeners.containsKey(event))
         {
-            this.listeners.get(event).remove(listener);
+            if (this.listeners.get(event).contains(listener))
+            {
+                this.numberOfEventListeners--;
+                this.listeners.get(event).remove(listener);
+            }
         }
     }
 
@@ -69,7 +96,7 @@ public class AbstractEntity implements Entity
      * 
      * @param event
      */
-    protected void notifyListeners(Event event)
+    public void notifyListeners(Event event)
     {
         HashSet<EventListener> eventListeners = this.listeners.get(event.getType());
         if (eventListeners != null)
@@ -79,6 +106,12 @@ public class AbstractEntity implements Entity
                 listener.handleEvent(this, event);
             }
         }
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Entity " + this.identity;
     }
 
 }

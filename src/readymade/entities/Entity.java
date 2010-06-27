@@ -11,6 +11,13 @@ import readymade.events.EventListener;
 public interface Entity
 {
     /**
+     * Unique ID for the entity.
+     * 
+     * @return
+     */
+    int getIdentity();
+
+    /**
      * Add the given component to the entity.
      * 
      * @param component
