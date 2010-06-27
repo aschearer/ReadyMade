@@ -1,10 +1,10 @@
-package test.unit.readymade.entities;
+package test.unit.readymade.scripts;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import readymade.entities.JavascriptEntityFactory;
+import readymade.scripts.JavascriptEntityFactory;
 import test.unit.readymade.MockEntity;
 
 /**

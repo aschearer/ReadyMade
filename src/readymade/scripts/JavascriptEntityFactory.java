@@ -1,10 +1,13 @@
-package readymade.entities;
+package readymade.scripts;
 
 import java.util.HashMap;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+
+import readymade.entities.Entity;
+import readymade.entities.EntityFactory;
 
 /**
  * Creates new entities by executing a Javascript configuration script.
