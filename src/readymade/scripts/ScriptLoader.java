@@ -17,7 +17,6 @@ import java.util.Scanner;
  */
 public class ScriptLoader
 {
-
     private final String directory;
     private final ScriptType type;
 
