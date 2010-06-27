@@ -1,7 +1,5 @@
 package readymade.components;
 
-import org.newdawn.slick.geom.Vector2f;
-
 /**
  * Applies gravity to a physics component over time.
  * 
@@ -21,8 +19,8 @@ public class GravityComponent extends UpdateComponent
     @Override
     public final void update(int delta)
     {
-        Vector2f velocity = this.body.getVelocity();
-        velocity.y -= delta * GravityComponent.GRAVITY;
-        this.body.setVelocity(velocity);
+        float yVelocity = this.body.getYVelocity();
+        yVelocity -= delta * GravityComponent.GRAVITY;
+        this.body.setYVelocity(yVelocity);
     }
 }

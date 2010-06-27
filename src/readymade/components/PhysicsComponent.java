@@ -1,7 +1,5 @@
 package readymade.components;
 
-import org.newdawn.slick.geom.Vector2f;
-
 import readymade.Body;
 
 /**
@@ -15,7 +13,7 @@ public class PhysicsComponent implements Body, Component
 
     private float x, y;
     private float width, height;
-    private Vector2f velocity;
+    private float xVelocity, yVelocity;
 
     public PhysicsComponent(float x, float y, float width, float height)
     {
@@ -23,7 +21,6 @@ public class PhysicsComponent implements Body, Component
         this.y = y;
         this.width = width;
         this.height = height;
-        this.velocity = new Vector2f();
     }
 
     @Override
@@ -76,13 +73,23 @@ public class PhysicsComponent implements Body, Component
         this.height = height;
     }
 
-    public final Vector2f getVelocity()
+    public final float getXVelocity()
     {
-        return this.velocity.copy();
+        return this.xVelocity;
     }
 
-    public final void setVelocity(Vector2f velocity)
+    public final void setXVelocity(float velocity)
     {
-        this.velocity = velocity;
+        this.xVelocity = velocity;
+    }
+
+    public final float getYVelocity()
+    {
+        return this.yVelocity;
+    }
+
+    public final void setYVelocity(float velocity)
+    {
+        this.yVelocity = velocity;
     }
 }
