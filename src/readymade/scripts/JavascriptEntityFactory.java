@@ -17,8 +17,8 @@ import readymade.entities.EntityFactory;
 public class JavascriptEntityFactory implements EntityFactory
 {
     private int counter;
-    private ScriptEngine engine;
-    private HashMap<String, String> scripts;
+    private final ScriptEngine engine;
+    private final HashMap<String, String> scripts;
 
     public JavascriptEntityFactory()
     {
@@ -36,13 +36,14 @@ public class JavascriptEntityFactory implements EntityFactory
     public final Entity getEntity(String type)
     {
         this.counter++;
-        engine.put("id", this.counter);
+        this.engine.put("id", this.counter);
+        this.engine.put("factory", this);
 
         Entity entity = null;
 
         try
         {
-            entity = (Entity) engine.eval(this.scripts.get(type));
+            entity = (Entity) this.engine.eval(this.scripts.get(type));
         }
         catch (ScriptException e)
         {

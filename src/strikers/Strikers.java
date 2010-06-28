@@ -11,10 +11,14 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
 import readymade.entities.Entity;
+import readymade.events.Event;
 import readymade.scripts.JavascriptEntityFactory;
 import readymade.scripts.ScriptLoader;
 import readymade.scripts.ScriptType;
 import strikers.components.RenderComponent;
+import strikers.components.UpdateComponent;
+import strikers.events.AddEventListener;
+import strikers.events.RemoveEventListener;
 
 /**
  * Tactical soccer game.
@@ -67,14 +71,35 @@ public class Strikers extends BasicGame
             factory.registerType(script, scripts.get(script));
         }
 
-        this.entities.add(factory.getEntity("SoccerBall"));
+        this.add(factory.getEntity("SoccerBall"));
+        this.add(factory.getEntity("Player"));
+        this.add(factory.getEntity("Goal"));
     }
 
     @Override
     public final void update(GameContainer container, int delta) throws SlickException
     {
-        // TODO Auto-generated method stub
+        Entity[] entities = this.entities.toArray(new Entity[0]);
+        for (Entity entity : entities)
+        {
+            UpdateComponent engine = entity.getComponent(UpdateComponent.TYPE);
+            if (engine != null)
+            {
+                engine.update(container.getInput(), delta);
+            }
+        }
+    }
 
+    public final void add(Entity e)
+    {
+        this.entities.add(e);
+        e.addEventListener(Event.ADD_TO_STAGE, new AddEventListener(this));
+        e.addEventListener(Event.REMOVE_FROM_STAGE, new RemoveEventListener(this));
+    }
+
+    public final void remove(Entity e)
+    {
+        this.entities.remove(e);
     }
 
     public static void main(String[] args)
@@ -90,4 +115,5 @@ public class Strikers extends BasicGame
             e.printStackTrace();
         }
     }
+
 }

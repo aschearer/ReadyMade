@@ -3,14 +3,14 @@ importPackage(Packages.readymade.components);
 importPackage(Packages.strikers.components);
 
 /**
- * Create an entity representing a soccer ball.
+ * Create an entity representing a goal.
  */
 ball = new ConcreteEntity(id);
 
-body = new PhysicsComponent(320, 240, 48, 48);
+body = new PhysicsComponent(48, 0, 256, 48);
 ball.addComponent(body);
 
-renderer = new RenderComponent("strikers/data/res/SoccerBall.png", body);
+renderer = new RenderComponent("strikers/data/res/Goal.png", body);
 ball.addComponent(renderer);
 
 ball;

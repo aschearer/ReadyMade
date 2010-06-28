@@ -1,4 +1,8 @@
-package readymade.components;
+package strikers.components;
+
+import org.newdawn.slick.Input;
+
+import readymade.components.Component;
 
 /**
  * A component which should be updated every frame.
@@ -8,7 +12,7 @@ package readymade.components;
 public abstract class UpdateComponent implements Component
 {
 
-    private static final String TYPE = "update";
+    public static final String TYPE = "update";
 
     @Override
     public final String getType()
@@ -16,5 +20,5 @@ public abstract class UpdateComponent implements Component
         return UpdateComponent.TYPE;
     }
 
-    public abstract void update(int delta);
+    public abstract void update(Input input, int delta);
 }
