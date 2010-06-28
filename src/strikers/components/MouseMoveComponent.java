@@ -21,8 +21,8 @@ public class MouseMoveComponent extends UpdateComponent
     @Override
     public final void update(Input input, int delta)
     {
-        float mx = input.getMouseX();
-        float my = input.getMouseY();
+        float mx = input.getMouseX() - this.body.getWidth() / 2;
+        float my = input.getMouseY() - this.body.getHeight() / 2;
 
         this.body.setX(mx);
         this.body.setY(my);

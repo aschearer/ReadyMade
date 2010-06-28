@@ -78,10 +78,10 @@ public class MouseClickComponent extends UpdateComponent
     private boolean intersects(Body body, float mx, float my)
     {
         Vector2f vector = new Vector2f(mx, my);
-        vector.x -= body.getX();
-        vector.y -= body.getY();
+        vector.x -= body.getX() + body.getWidth() / 2;
+        vector.y -= body.getY() + body.getHeight() / 2;
 
-        float radius = Math.max(body.getWidth(), body.getHeight());
+        float radius = Math.max(body.getWidth(), body.getHeight()) / 2;
 
         return vector.lengthSquared() < (radius * radius);
     }

@@ -8,8 +8,18 @@ package readymade;
 public interface Body
 {
 
+    /**
+     * Returns the leftmost x value for the body.
+     * 
+     * @return
+     */
     float getX();
 
+    /**
+     * Returns the topmost y value for the body.
+     * 
+     * @return
+     */
     float getY();
 
     float getWidth();
