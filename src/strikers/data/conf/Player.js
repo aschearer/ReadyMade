@@ -10,7 +10,7 @@ player = new ConcreteEntity(id);
 body = new PhysicsComponent(48, 48, 64, 64);
 player.addComponent(body);
 
-renderer = new RenderComponent("strikers/data/res/Player.png", body);
+renderer = new SpriteComponent("strikers/data/res/Player.png", body);
 player.addComponent(renderer);
 
 clicker = new MouseClickComponent(factory, player, body);

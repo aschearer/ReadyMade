@@ -10,7 +10,7 @@ ball = new ConcreteEntity(id);
 body = new PhysicsComponent(320, 240, 48, 48);
 ball.addComponent(body);
 
-renderer = new RenderComponent("strikers/data/res/SoccerBall.png", body);
+renderer = new SpriteComponent("strikers/data/res/SoccerBall.png", body);
 ball.addComponent(renderer);
 
 ball;

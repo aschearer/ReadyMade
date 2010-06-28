@@ -7,10 +7,10 @@ importPackage(Packages.strikers.components);
  */
 mark = new ConcreteEntity(id);
 
-body = new PhysicsComponent(128, 128, 32, 32);
+body = new PhysicsComponent(128, 128, 16, 16);
 mark.addComponent(body);
 
-renderer = new RenderComponent("strikers/data/res/Mark.png", body);
+renderer = new SpriteComponent("strikers/data/res/Mark.png", body);
 mark.addComponent(renderer);
 
 engine = new MouseMoveComponent(body);
