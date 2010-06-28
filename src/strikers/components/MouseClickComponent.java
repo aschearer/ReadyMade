@@ -7,6 +7,7 @@ import readymade.Body;
 import readymade.entities.Entity;
 import readymade.entities.EntityFactory;
 import readymade.events.Event;
+import readymade.events.EventDispatcher;
 
 /**
  * Polls for a click adding a tracking entity when the player presses the mouse.
@@ -15,12 +16,12 @@ import readymade.events.Event;
  */
 public class MouseClickComponent extends UpdateComponent
 {
-    private final Entity owner;
+    private final EventDispatcher owner;
     private final Body body;
     private final Entity marker;
     private boolean active;
 
-    public MouseClickComponent(EntityFactory factory, Entity owner, Body body)
+    public MouseClickComponent(EntityFactory factory, EventDispatcher owner, Body body)
     {
         this.owner = owner;
         this.body = body;

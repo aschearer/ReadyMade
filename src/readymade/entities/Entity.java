@@ -1,15 +1,14 @@
 package readymade.entities;
 
 import readymade.components.Component;
-import readymade.events.Event;
-import readymade.events.EventListener;
+import readymade.events.EventDispatcher;
 
 /**
  * An object which is composed of a set of components and event listeners.
  * 
  * @author Alex Schearer <aschearer@gmail.com>
  */
-public interface Entity
+public interface Entity extends EventDispatcher
 {
     /**
      * Unique ID for the entity.
@@ -40,27 +39,4 @@ public interface Entity
      * @return
      */
     <T extends Component> T getComponent(String type);
-
-    /**
-     * Alert the listener whenever the given event is fired.
-     * 
-     * @param event
-     * @param listener
-     */
-    void addEventListener(String event, EventListener listener);
-
-    /**
-     * Remove the listener for the given event.
-     * 
-     * @param event
-     * @param listener
-     */
-    void removeEventListener(String event, EventListener listener);
-
-    /**
-     * Fire listeners registered for the given event.
-     * 
-     * @param event
-     */
-    void notifyListeners(Event event);
 }
